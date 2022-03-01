@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+  <a th:href="@{/doctor/myprofile/{id}(id=${doctor.id})}">Profile</a>
+  <a th:href="@{/doctor/myappointments/{id}(id=${doctor.id})}">My appointments</a>
+  <a th:href="@{/}">Logout</a>
+<table>
+  <tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Email</td>
+    <td>Specialist</td>
+    <td>Update</td>
+  </tr>
+  <tr>
+    <td th:text="${doctor.firstName}"></td>
+    <td th:text="${doctor.lastName}"></td>
+    <td th:text="${doctor.email}"></td>
+    <td th:text="${doctor.specialist}"></td>
+    <td><a href="">Update</a></td>
+  </tr>
+</table>
+</center>
+</body>
+</html>

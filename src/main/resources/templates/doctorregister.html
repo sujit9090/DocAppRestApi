@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Registration </title>
+</head>
+<body>
+Welcome to Doctor Registration
+<form th:action="@{/doctor/save}" method="post" th:object="${doctor}" >
+    <div class="form-group">
+        <label for="firstName">FirstName</label>
+        <input type="text" class="form-control" id="firstName"  placeholder="Enter FirstName" th:field ="*{firstName}">
+    </div>
+    <div class="form-group">
+        <label for="lastName">lastName</label>
+        <input type="text" class="form-control" id="lastName"  placeholder="Enter LastName" th:field ="*{lastName}">
+    </div>
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email"  placeholder="Enter email" th:field ="*{email}">
+
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" th:field ="*{password}">
+    </div>
+    <div class="form-group">
+        <label for="specialist">Specialist</label>
+        <select id="specialist" th:field="*{specialist}">
+            <option th:value="ENT" th:text="ENT"></option>
+            <option th:value="Cardiologist" th:text="Cardiologist"></option>
+            <option th:value="General" th:text="General"></option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>

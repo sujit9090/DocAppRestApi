@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+</head>
+<body>
+<center>
+  <a th:href="@{/patient/myprofile/{id}(id=${patient.id})}">Profile</a>
+  <a th:href="@{/patient/{id}/appointment(id=${patient.id})}">Book Appointment</a>
+  <a th:href="@{/patient/{id}/myappointments(id=${patient.id})}">My Appointments</a>
+  <a th:href="@{/}">Logout</a>
+ <br>
+  <h4>Book Appointment</h4>
+  <form th:action="@{/patient/{id}/appointment/save(id=${id})}" method="post" th:object="${appointment}" >
+    <div class="form-group">
+      <label for="patientName">Patient Name</label>
+      <input type="text" class="form-control" id="patientName"  placeholder="Enter Patient Name" th:field ="*{patientName}">
+    </div>
+    <div class="form-group">
+      <label for="number">Mobile Number</label>
+      <input type="number" class="form-control" id="number"  placeholder="Enter Mobile Number" th:field ="*{mobileNumber}">
+    </div>
+    <div class="form-group">
+      <label for="specialist">Specialist</label>
+      <select id="specialist" th:field="*{specialist}">
+        <option th:value="ENT" th:text="ENT"></option>
+        <option th:value="Cardiologist" th:text="Cardiologist"></option>
+        <option th:value="General" th:text="General"></option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" class="form-control" id="date" th:field ="*{date}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</center>
+</body>
+</html>
